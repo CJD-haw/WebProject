@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit and Delete Users</title>
+</head>
+<body>
+<h1>Details</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Status</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for i in values%}
+    <tr>
+        <td>{{i.Name}}</td>
+        <td>{{i.Username}}</td>
+        <td>{{i.Password}}</td>
+        <td>{{i.Status}}</td>
+        <td><a href="/edit/{{i.id}}">Edit</a></td>
+        <td><a href="/delete/{{i.id}}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% if id%}
+<form method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td><label>Name</label></td>
+            <td>{{id.Name}}</td>
+        </tr>
+        <tr>
+            <td><label>Username</label></td>
+            <td><input type="text" name="user" value="{{id.Username}}"></td>
+        </tr>
+        <tr>
+            <td><label>Password</label></td>
+            <td><input type="text" name="pass" value="{{id.Password}}"></td>
+        </tr>
+        <tr><td><input type="submit" value="Update"></td></tr>
+    </table>
+</form>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Approved Users</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Status</th>
+    </tr>
+    {% for i in values %}
+    <tr>
+        <td>{{i.Name}}</td>
+        <td>{{i.Username}}</td>
+        <td>{{i.Password}}</td>
+        <td>{{i.Status}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
